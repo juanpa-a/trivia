@@ -33,12 +33,14 @@ function renderQuestion() {
     ans.forEach(a => $('#answers').append(`<p class='ans'>${a}</p>`));
 }
 
-let time = 3
+let time = 30
 let timerId = setInterval(() => {
     if(time <= 1 ) {
         // renderQuestion()
         i++
+        renderQuestion()
         clearInterval(timerId)
+        time = 30
     }
     time--
     $('#tiempo').text(time)
