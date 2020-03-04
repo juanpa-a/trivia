@@ -33,6 +33,17 @@ function renderQuestion() {
     ans.forEach(a => $('#answers').append(`<p class='ans'>${a}</p>`));
 }
 
+let time = 3
+let timerId = setInterval(() => {
+    if(time <= 1 ) {
+        // renderQuestion()
+        i++
+        clearInterval(timerId)
+    }
+    time--
+    $('#tiempo').text(time)
+}, 1000)
+
 $(document).on('click', '.ans', function(){
     if($(this).text() === questions[i].correctAnswer ) {
         console.log('Correct!')
